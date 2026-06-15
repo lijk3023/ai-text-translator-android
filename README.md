@@ -2,11 +2,11 @@
 
 Android app for translating selected text with an OpenAI-compatible chat completion API.
 
-The app registers Android selected-text actions, so it can be opened from the system text selection menu. It can translate in a compact popup window without forcing a full app switch, and the main app screen provides API and prompt settings.
+The app supports Android selected-text actions and can translate text in a compact popup window. The main app screen provides API and prompt settings.
 
 ## Features
 
-- Translate selected text from Android `ACTION_TRANSLATE` and `ACTION_PROCESS_TEXT`.
+- Handle selected text from Android `ACTION_TRANSLATE` and `ACTION_PROCESS_TEXT`.
 - Compact popup translation window for selection-based workflows.
 - OpenAI-compatible `/chat/completions` API support.
 - Configurable Base URL, API key, model, target language, and prompt template.
