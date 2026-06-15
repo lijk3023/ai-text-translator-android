@@ -1,4 +1,4 @@
-package com.lijk.aitexttranslator
+package dev.aitexttranslator
 
 import android.app.Activity
 import android.content.ClipData
@@ -311,6 +311,10 @@ private fun PopupTranslatorApp(
             ) {
                 PopupHeader(
                     settings = settings,
+                    targetLanguage = resolveTargetLanguageForText(
+                        text = sourceText,
+                        defaultTargetLanguage = settings.targetLanguage,
+                    ),
                     payload = initialPayload,
                     onOpenSettings = onOpenSettings,
                 )
@@ -343,6 +347,7 @@ private fun PopupTranslatorApp(
 @Composable
 private fun PopupHeader(
     settings: AppSettings,
+    targetLanguage: String,
     payload: TranslateIntentPayload,
     onOpenSettings: () -> Unit,
 ) {
@@ -354,7 +359,7 @@ private fun PopupHeader(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "翻译为 ${settings.targetLanguage}",
+                    text = "翻译为 $targetLanguage",
                     color = Ink,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 18.sp,
@@ -534,6 +539,10 @@ private fun TranslateScreen(
         modifier = contentModifier,
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
+        val targetLanguage = resolveTargetLanguageForText(
+            text = sourceText,
+            defaultTargetLanguage = settings.targetLanguage,
+        )
         if (popupMode) {
             Surface(
                 modifier = Modifier.fillMaxWidth(),
@@ -551,6 +560,7 @@ private fun TranslateScreen(
                 ) {
                     HeaderPanel(
                         settings = settings,
+                        targetLanguage = targetLanguage,
                         payload = payload,
                         onOpenSettings = onOpenSettings,
                         popupMode = true,
@@ -567,6 +577,7 @@ private fun TranslateScreen(
         } else {
             HeaderPanel(
                 settings = settings,
+                targetLanguage = targetLanguage,
                 payload = payload,
                 onOpenSettings = onOpenSettings,
                 popupMode = false,
@@ -634,6 +645,7 @@ private fun SourceAndResult(
 @Composable
 private fun HeaderPanel(
     settings: AppSettings,
+    targetLanguage: String,
     payload: TranslateIntentPayload,
     onOpenSettings: () -> Unit,
     popupMode: Boolean,
@@ -665,7 +677,7 @@ private fun HeaderPanel(
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = "自动检测 -> ${settings.targetLanguage}",
+                            text = "自动检测 -> $targetLanguage",
                             color = Ink,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 19.sp,

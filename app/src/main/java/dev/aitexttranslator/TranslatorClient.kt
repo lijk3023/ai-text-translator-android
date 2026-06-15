@@ -1,4 +1,4 @@
-package com.lijk.aitexttranslator
+package dev.aitexttranslator
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -31,6 +31,10 @@ class TranslatorClient {
         runCatching {
             require(text.isNotBlank()) { "没有可翻译的文本" }
             require(settings.isConfigured) { "请先在设置里填写 API Key、Base URL 和模型" }
+            val targetLanguage = resolveTargetLanguageForText(
+                text = text,
+                defaultTargetLanguage = settings.targetLanguage,
+            )
 
             val body = JSONObject()
                 .put("model", settings.model)
@@ -44,7 +48,7 @@ class TranslatorClient {
                                     "content",
                                     settings.promptTemplate.replace(
                                         "{{target_language}}",
-                                        settings.targetLanguage
+                                        targetLanguage
                                     )
                                 )
                         )

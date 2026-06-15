@@ -1,4 +1,4 @@
-package com.lijk.aitexttranslator
+package dev.aitexttranslator
 
 import android.content.Intent
 import android.os.Build

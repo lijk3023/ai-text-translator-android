@@ -8,6 +8,8 @@ The app supports Android selected-text actions and can translate text in a compa
 
 - Handle selected text from Android `ACTION_TRANSLATE` and `ACTION_PROCESS_TEXT`.
 - Compact popup translation window for selection-based workflows.
+- Light and dark themes that follow the system setting.
+- Automatically translates Chinese-looking source text into English while keeping the configured target language for other text.
 - OpenAI-compatible `/chat/completions` API support.
 - Configurable Base URL, API key, model, target language, and prompt template.
 - Copy translated text or replace selected text when the calling app allows it.
@@ -16,7 +18,7 @@ The app supports Android selected-text actions and can translate text in a compa
 ## Package
 
 ```text
-com.lijk.aitexttranslator
+dev.aitexttranslator
 ```
 
 ## Build

@@ -1,4 +1,4 @@
-package com.lijk.aitexttranslator
+package dev.aitexttranslator
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -19,7 +19,7 @@ class SettingsRepository(context: Context) {
             apiKey = preferences[API_KEY] ?: "",
             model = preferences[MODEL] ?: "gpt-4o-mini",
             targetLanguage = preferences[TARGET_LANGUAGE] ?: "中文",
-            promptTemplate = preferences[PROMPT_TEMPLATE] ?: DEFAULT_PROMPT_TEMPLATE,
+            promptTemplate = normalizePromptTemplate(preferences[PROMPT_TEMPLATE]),
             streamOutput = preferences[STREAM_OUTPUT] ?: false,
         )
     }
@@ -34,6 +34,15 @@ class SettingsRepository(context: Context) {
                 DEFAULT_PROMPT_TEMPLATE
             }
             preferences[STREAM_OUTPUT] = settings.streamOutput
+        }
+    }
+
+    private fun normalizePromptTemplate(savedPrompt: String?): String {
+        val prompt = savedPrompt?.trim().orEmpty()
+        return when {
+            prompt.isBlank() -> DEFAULT_PROMPT_TEMPLATE
+            prompt == LEGACY_DEFAULT_PROMPT_TEMPLATE -> DEFAULT_PROMPT_TEMPLATE
+            else -> prompt
         }
     }
 

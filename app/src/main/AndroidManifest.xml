@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AiTextTranslator">
 
         <activity
-            android:name="com.lijk.aitexttranslator.MainActivity"
+            android:name="dev.aitexttranslator.redesign.TranslatorActivity"
             android:exported="true"
             android:label="@string/app_name">
 
@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name="com.lijk.aitexttranslator.SelectionTranslateActivity"
+            android:name="dev.aitexttranslator.redesign.PopupTranslatorActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:label="@string/translate_activity_label"

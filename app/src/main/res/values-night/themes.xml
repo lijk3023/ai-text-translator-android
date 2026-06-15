@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.AiTextTranslator" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Theme.AiTextTranslator" parent="android:style/Theme.Material.NoActionBar">
         <item name="android:fontFamily">sans</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">#F3F1EC</item>
-        <item name="android:navigationBarColor">#F3F1EC</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#0E0E11</item>
+        <item name="android:navigationBarColor">#0E0E11</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 

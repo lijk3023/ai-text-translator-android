@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.lijk.aitexttranslator"
+    namespace = "dev.aitexttranslator"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.lijk.aitexttranslator"
+        applicationId = "dev.aitexttranslator"
         minSdk = 23
         targetSdk = 35
         versionCode = 1
@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
     implementation(libs.org.json)
+
+    testImplementation(libs.kotlin.test)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
