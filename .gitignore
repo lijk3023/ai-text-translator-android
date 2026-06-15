@@ -1,0 +1,18 @@
+.gradle/
+build/
+*/build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+captures/
+.idea/
+*.iml
+
+# Local-only working artifacts
+artifacts/
+security/
+todo.csv
+.agents/
+.codex/
